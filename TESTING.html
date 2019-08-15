@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Minutes to Read</title>
+<script src="../Javascript/script.js"></script>	
+</head>
+
+<body>
+	
+	<h1 class="LessonNumber">Lesson 2.6: Europe from 1200 to 1450</h1>
+		
+		<!--Insert time it will take within span tag.-->
+		<h4 style="font-size: 14px">This lesson will take approximately <span id="numOfWords" style="font-size: 20px; color: red;"></span> minutes to complete.</h4><br>	
+	
+	
+	
+		<!--Page Content-->
+		<p class="objectiveheader">Explain what happened in Europe from 1200 to 1450.</p>
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Curabitur vitae nunc sed velit dignissim sodales ut. Adipiscing enim eu turpis egestas pretium aenean. Est pellentesque elit ullamcorper dignissim cras tincidunt lobortis. Consequat semper viverra nam libero justo. Aliquet porttitor lacus luctus accumsan tortor posuere ac. At quis risus sed vulputate odio. Nec feugiat in fermentum posuere urna nec tincidunt praesent. Sapien faucibus et molestie ac feugiat sed lectus vestibulum mattis. Quis risus sed vulputate odio ut enim blandit volutpat maecenas. Est ullamcorper eget nulla facilisi etiam dignissim diam. Morbi non arcu risus quis. Ultricies mi quis hendrerit dolor magna eget est lorem ipsum. Sit amet purus gravida quis blandit turpis. Duis at consectetur lorem donec massa sapien faucibus et. Ac tortor vitae purus faucibus ornare suspendisse sed nisi lacus. Enim praesent elementum facilisis leo vel.</p>
+
+		<p>Morbi tristique senectus et netus et malesuada fames. Turpis massa sed elementum tempus egestas sed sed risus. Sem nulla pharetra diam sit amet. Fermentum dui faucibus in ornare quam viverra orci. Sem integer vitae justo eget magna fermentum. Sed id semper risus in hendrerit gravida. Nisl tincidunt eget nullam non nisi est sit. Augue lacus viverra vitae congue eu consequat. Leo vel orci porta non pulvinar neque laoreet. At auctor urna nunc id cursus metus. Ipsum dolor sit amet consectetur adipiscing elit. Eu augue ut lectus arcu bibendum at varius vel pharetra. Ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Tincidunt tortor aliquam nulla facilisi cras fermentum odio eu feugiat. Fermentum dui faucibus in ornare quam viverra orci sagittis eu. At varius vel pharetra vel turpis. Donec massa sapien faucibus et molestie ac.</p>
+
+		<p>Neque ornare aenean euismod elementum nisi quis eleifend quam. In egestas erat imperdiet sed. Neque viverra justo nec ultrices dui sapien eget mi proin. Et pharetra pharetra massa massa ultricies mi quis hendrerit dolor. Mi quis hendrerit dolor magna eget. Vehicula ipsum a arcu cursus. Id diam maecenas ultricies mi eget mauris. Dignissim convallis aenean et tortor at risus viverra adipiscing. Arcu dui vivamus arcu felis. Dolor sit amet consectetur adipiscing elit ut aliquam purus sit. Adipiscing elit pellentesque habitant morbi tristique senectus et. In metus vulputate eu scelerisque felis imperdiet proin. Metus aliquam eleifend mi in nulla. Cursus vitae congue mauris rhoncus aenean vel. Sapien eget mi proin sed libero enim sed. Id aliquet lectus proin nibh nisl condimentum id venenatis. Aliquet risus feugiat in ante metus dictum. Mi proin sed libero enim sed faucibus turpis in. Semper risus in hendrerit gravida.</p>
+
+		<p>Risus nec feugiat in fermentum. Ac turpis egestas maecenas pharetra convallis posuere morbi leo urna. Quam vulputate dignissim suspendisse in est ante in nibh. Quisque sagittis purus sit amet volutpat consequat mauris. Malesuada pellentesque elit eget gravida cum sociis natoque penatibus et. Diam sit amet nisl suscipit adipiscing bibendum. Vulputate ut pharetra sit amet aliquam id diam maecenas. Arcu odio ut sem nulla pharetra diam sit amet. Etiam tempor orci eu lobortis elementum nibh. In hac habitasse platea dictumst vestibulum. Praesent semper feugiat nibh sed pulvinar proin gravida hendrerit lectus. In ante metus dictum at tempor. Nec tincidunt praesent semper feugiat nibh.</p>
+
+		<p>Neque sodales ut etiam sit amet nisl purus in mollis. Egestas egestas fringilla phasellus faucibus scelerisque eleifend. Amet porttitor eget dolor morbi non arcu risus quis. Dis parturient montes nascetur ridiculus mus mauris. Quam lacus suspendisse faucibus interdum. Lorem ipsum dolor sit amet consectetur adipiscing elit. Senectus et netus et malesuada fames ac turpis. Ultrices neque ornare aenean euismod elementum nisi quis. Enim praesent elementum facilisis leo vel fringilla est ullamcorper eget. Massa enim nec dui nunc. Nibh tellus molestie nunc non blandit massa. Malesuada fames ac turpis egestas sed tempus urna. Gravida cum sociis natoque penatibus et magnis dis parturient. Ut etiam sit amet nisl purus in mollis nunc. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant.</p>
+	
+	
+	<!-- This script counts the number of words in the HTML file and calculates the amount of minutes it will take to read-->
+	<script type="text/javascript">
+		
+		if (window.addEventListener) { // Mozilla, Netscape, Firefox
+			window.addEventListener('load', WindowLoad, false);
+		} else if (window.attachEvent) { // IE
+			window.attachEvent('onload', WindowLoad);
+		}
+
+		function WindowLoad(event) {
+			var wordCount = 0;
+			var content = "";
+			var all = document.getElementsByTagName("*");
+			var num = 0;
+			var total = 0;
+			var start = 0;
+
+			for (var i = 0; i < all.length; i++) {
+				if (all[i].id === "numOfWords") {
+					start = i;
+				}
+			}
+
+			for (var i = start; i < all.length; i++) {
+				content = all[i].innerHTML;
+				num = (content.split(" ").length - 1) + 1;
+
+				wordCount =  wordCount + num;				
+			}
+
+			total = Math.round((wordCount - 1) / 200);
+
+			document.getElementById("numOfWords").innerHTML = total;
+		}
+	</script>
+	<!---------------------------End Script--------------------------->
+	
+	
+</body>
+</html>
